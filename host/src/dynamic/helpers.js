@@ -1,8 +1,6 @@
-import LIB from "useless-lib";
-
 const SHARE_SCOPE = "default";
 
-const loadComponent = async (scope, module) => {
+export const loadComponent = async (scope, module) => {
   await __webpack_init_sharing__(SHARE_SCOPE);
 
   const container = window[scope];
@@ -18,7 +16,7 @@ const loadComponent = async (scope, module) => {
   return Module;
 };
 
-const useDynamicScript = (url, onload) => {
+export const useDynamicScript = (url, onload) => {
   if (!url) return;
 
   const element = document.createElement("script");
@@ -35,13 +33,3 @@ const useDynamicScript = (url, onload) => {
 
   document.head.appendChild(element);
 };
-
-window.addEventListener("load", () => {
-  console.log("host", LIB.version);
-
-  useDynamicScript("http://localhost:8081/remoteEntry.js", () => {
-    loadComponent("client", "./module").then(({ default: module }) => {
-      module();
-    });
-  });
-});

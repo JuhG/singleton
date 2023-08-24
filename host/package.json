@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve"
+    "dynamic": "webpack serve -c webpack.dynamic.js",
+    "remotes": "webpack serve -c webpack.remotes.js"
   },
   "keywords": [],
   "author": "Gabor Juhasz",

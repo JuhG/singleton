@@ -2,7 +2,7 @@ const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/dynamic",
+  entry: "./src/remotes",
   mode: "development",
   output: {
     clean: true,
@@ -12,10 +12,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "host",
       remotes: {
-        // client: "client@http://localhost:8081/remoteEntry.js",
+        client: "client@http://localhost:8081/remoteEntry.js",
       },
-      // shared: ["useless-lib"],
-      shared: {},
+      shared: ["useless-lib"],
     }),
   ],
 };
