@@ -23,6 +23,11 @@ module.exports = {
       exposes: {
         "./module": "./src/module.js",
       },
+      shared: {
+        "useless-lib": {
+          singleton: true,
+        },
+      },
     }),
   ],
 };
