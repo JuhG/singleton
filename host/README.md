@@ -2,7 +2,10 @@
 
 ```bash
 npm ci
-npm run start
+
+npm run dynamic
+# OR
+npm run remotes
 ```
 
 Host available at `http://localhost:8080/`
